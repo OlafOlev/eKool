@@ -14,6 +14,14 @@ class School:
         self.teacher.append(teacher.name)
     def registering_student_2school(self, student):
         self.students.append(student.student_name)
+    def show_grades(self):
+        return self.grade
+    def show_students(self):
+        return self.students
+    def show_teacher(self):
+        return self.teacher
+    def show_subject(self):
+        return self.subject
 class Grade:
     name = ""
     students = []
