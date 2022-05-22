@@ -55,10 +55,24 @@ class Student:
     student_grade = ""
     student_marks = [] #grade as "You got 2 on your test"
     student_avg_mark = 0
+    student_mark_total = 0
+    def getting_avg_mark(self):
+        for i in self.student_marks:
+            self.student_mark_total += i
+        self.student_avg_mark = round(self.student_mark_total/len(self.student_marks),2)
+        return self.student_avg_mark
     student_subjects = []
+    failed_subjects = []
+    passed_subjects = []
     def naming_student(self):
         self.student_name = input(str("Enter student name:"))
     def adding_subject(self, subject):
         self.student_subjects.append(subject)
     def adding_grade(self, grade):
         self.student_grade = grade
+    def passed_the_subject(self, subject):
+        self.passed_subjects.append(subject.name)
+    def failed_the_subject(self, subject):
+        self.failed_subjects.append(subject.name)
+    def add_a_mark(self, mark):
+        self.student_marks.append(mark)
