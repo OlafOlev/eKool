@@ -22,6 +22,19 @@ class School:
         return self.teacher
     def show_subject(self):
         return self.subject
+    def getmark(self, student):
+        return student.return_avg_mark()
+    def getranked(self, students, school):
+        for i in students:
+            i.getting_avg_mark(i)
+        self.ranked_students = sorted(students, key=school.getmark, reverse=True)
+    def show_school_ranking(self, school, students):
+        print("---" + f"School student ranking:")
+        self.getranked(students, school)
+        g = 1
+        for i in self.ranked_students:
+            print(str(g) + ".", i.student_name,f"average grade is ", str(i.student_avg_mark))
+            g += 1
 class Grade:
     name = ""
     students = []
